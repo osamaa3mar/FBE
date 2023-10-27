@@ -1,0 +1,33 @@
+body {
+    background-color: rgba(220, 47, 171, 0.83);
+}
+
+.container {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.lorem {
+    background-color: white;
+    max-width: none;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    max-width: 25%;
+}
+
+.lorem1 {
+
+    font-weight: bold;
+}
+
+.content {
+    overflow-y: auto;
+    max-height: 70px;
+}
+
+
+
+hr {
+    border: 2px solid;
+    color: black;
+}

@@ -1,0 +1,96 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #fff;
+  }
+
+  .form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 50px;
+    background-color: purple;
+  }
+
+  .form-container h2 {
+    text-align: center;
+  }
+
+  .form-container input[type="text"],
+  .form-container input[type="password"],
+  .form-container input[type="checkbox"] {
+    width: 93%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+
+  .form-container .name-container {
+    display: flex;
+  }
+
+  .form-container .name-container input[type="text"] {
+    flex: 1;
+    margin-right: 5px;
+  }
+
+  .form-container input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: gray;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+
+  .form-container p {
+    text-align: center;
+    margin-top: 10px;
+  }
+  .form-container a{
+      color: #fff;
+  }
+  .form-container2 input[type="text"],
+  .form-container2 input[type="password"],
+  .form-container2 input[type="checkbox"] {
+    width: 93%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  .form-container2{
+    max-width: 100%;
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px;
+    
+    
+    background-color: white;
+    color: black;
+  }
+  .form-container2 input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: greenyellow;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+  .mainContainer{
+      border: 1px solid #ccc;
+      border-radius: 50px;
+      width: 70%;
+      display: flex;
+      justify-content: space-between;
+      margin: 0 auto;
+  }
+  .lab-image img{
+      max-width: 50%;
+      max-height: 50%;
+      border-radius: 50%;
+      padding: 10%;
+  }

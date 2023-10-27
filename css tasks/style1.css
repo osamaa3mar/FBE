@@ -1,0 +1,34 @@
+*{
+    box-sizing: border-box;
+}
+p{
+    text-align: center;
+}
+table{
+    border: 5px ridge;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+tr{
+    border: 1px ridge;
+}
+th{
+    text-align: right;
+    border: 5px ridge;
+    background-color: yellow;
+}
+td{
+    border: 5px ridge;
+    
+}
+.ninjaA{
+    background-color: pink;
+    text-align: center;
+}
+.best{
+    text-align: center;
+    font-weight: bold;
+}
+
+

@@ -1,0 +1,150 @@
+.firsttask{
+    padding: 0;
+    margin: 0;
+    background-color: rgb(165, 112, 42);
+}
+
+.top{
+    background-color: brown;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    margin: 0;
+    font-weight: bold;
+    font-size: x-large;
+}
+
+ul{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+li{
+    padding: 10px;
+    font-size: x-large;
+    color: green;
+}
+.browncolor{
+    color: brown;
+}
+.blackcolor{
+    color: black;
+}
+
+/* form 2 */
+.socendtask{
+background-color: skyblue;
+padding: 0;
+margin: 0;
+display: grid;
+height: 100vh;
+grid-template-columns: 1fr;
+grid-template-rows: 1fr;
+font-family: 'Inter', sans-serif;
+
+}
+
+.container{
+background-color: white;
+display: flex;         
+justify-content: center;
+align-items: center;
+width: 40%;
+height: 600px;
+margin: auto;
+border-radius: 20px;
+box-shadow: 2px 3px 24px 0px rgba(206,197,197,0.75) inset;
+-webkit-box-shadow: 2px 3px 24px 0px rgba(206,197,197,0.75) inset;
+-moz-box-shadow: 2px 3px 24px 0px rgba(206,197,197,0.75) inset;
+}
+.container-form{
+width: 60%;
+}
+.container-form h1{
+text-align: center;
+margin-bottom: 30px;
+}  
+.socendtask .container .container-form h1,p,label{
+color: blue;
+}
+.container-form form .text-block{
+margin: 10px 0;;
+display: block;
+border-style: none;
+border: 1px solid skyblue;
+border-radius: 5px;
+width: 100%;
+height: 50px;
+padding: 0 10px;
+}
+
+.btn{
+display: block;
+margin: 30px auto;
+border-style: none;
+background-color: skyblue;
+padding: 10px;
+border-radius: 10px;
+color: white;
+}
+.container-form p{
+text-align: center;
+}
+/* task3 */
+.task3{
+background-color: #1cbdfb;
+padding: 0;
+margin: 0;
+display: grid;
+height: 100vh;
+grid-template-columns: 1fr;
+grid-template-rows: 1fr;
+font-family: 'Inter', sans-serif;
+}
+
+.task3 .container{
+display: flex;         
+justify-content: center;
+align-items: center;
+width: 80%;
+height: 600px;
+margin: auto;
+border-radius: 20px;
+}
+.task3 .container-form{
+width: 90%;
+}
+
+.task3 form .text-block{
+margin: 10px 0;;
+display: block;
+border-style: none;
+border: 1px solid skyblue;
+border-radius: 15px;
+width: 100%;
+height: 50px;
+padding: 0 10px;
+}
+
+.task3 .btn{
+border-style: none;
+background-color: #0e55bb;
+padding: 10px;
+border-radius: 10px;
+color: white;
+position: absolute;
+left: 20;
+}
+.task3 textarea{
+height: 100px !important; 
+}
+
+.task3 h3{
+text-align: center;
+color: blue;
+}  
+
+.task3 p{
+text-align: center;
+}
