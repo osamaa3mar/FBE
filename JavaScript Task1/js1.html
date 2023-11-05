@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="task1ID"></h1>
+
+
+
+    <script>
+        function task1(){
+            let op= '-';
+            let num1 = 0;
+            let num2= 0;
+
+
+            op= prompt("please enter the operation '+,-,*,/'");
+            num1 = parseFloat(prompt("please enter the first number"));
+            num2= parseFloat(prompt("please enter the seocond number"));
+            
+            let sol = 0;
+            switch(op){
+                    case '+':
+                    sol = num1 + num2 ;
+                    break;
+                    case '-':
+                    sol = num1 - num2 ;
+                    break;
+                    case '*':
+                    sol = num1 * num2 ;
+                    break;
+                    case '/':
+                    sol = num1 / num2 ;
+                    break;
+                default:
+                    sol = 0;
+                    break;
+            }
+            document.getElementById("task1ID").innerHTML = sol;
+            console.log(`operation is ${op} number1 is ${num1} number2  is ${num2} sol is ${sol}`);
+        }
+        
+        
+       
+        task1();
+      
+    </script>
+</body>
+</html>
