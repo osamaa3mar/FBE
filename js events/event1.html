@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="cplusplus.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div id="hello">hello world</div>
+    </div>
+    
+    <div class="container2">
+        <label for="flag">Select a Flag:</label>
+        <select id="flags">
+                <option value="jordan">Jordan</option>
+                <option value="Palestine">Palestine</option>
+                <option value="Pakistan">Pakistan</option>
+        </select><br>
+        <img src="jordan.png" alt="" id="image">
+    </div>
+
+    <div class="container2">
+        <label for="pass1">Password (min 6 chars):</label>
+        <input type="password" placeholder="Password" id="pass1">
+        <label for="error1" id="error1" style="color: red;"></label><br>
+        <label for="pass1">Repeat Paswword:</label>
+        <input type="password" placeholder="Password" id="pass2">
+        <label for="error2" id="error2" style="color: red;"></label>
+    </div>
+
+    <div class="container3" style="width: 50%; border: 1px solid gray;">
+        <div class="chead" style="background-color: gray;">
+            <h3 style="margin-top: 0px;">Lorem ipsum dolor sit amet consectetur <span><a href="#" id="show">show</a></span></h3>
+            
+        </div>
+        <div id="cont" style="display: none;" >
+            <p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta rerum esse minima ipsum distinctio blanditiis nesciunt veritatis error reprehenderit ab.Lorem ipsum dolor sit, amet consectetur adipisicing Et temporibus aut sit impedit aliquid, obcaecati architecto quaerat dolorem earum modi!</p>
+            <p><a href="#" id="hide">hide</a></p>
+        </div>
+    </div>
+
+    
+    <div class="container3" style="margin-top: 20px;">
+        <select id="fonts">
+            <option value="arial">arial</option>
+            <option value="fantasy">Verdana</option>
+    </select>
+    <input type="number" name="size" id="size">pt
+    <input type="checkbox" name="italic" id="italic">
+    <label for="italic">italic</label>
+    <input type="checkbox" name="bold" id="bold">
+    <label for="bold">bold</label>
+    <input type="checkbox" name="underline" id="underline">
+    <label for="underline">underline</label><br>
+    <textarea name="text" id="textarea" cols="50" rows="10"></textarea>
+    </div>
+
+
+    <div id="colorChangingDiv" style="width: 200px; height: 200px; margin-top: 22px;"></div>
+
+
+
+    <script src="event.js">
+        
+    </script>
+</body>
+</html>
