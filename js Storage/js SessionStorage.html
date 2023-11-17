@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <title>Project Data Form</title>
+        <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .btn-danger {
+            width: 100%;
+        }
+    
+    </style>
+</head>
+<body class="container mt-5">
+
+
+    <div class="container">
+        <h2>Project Data Form</h2>
+
+        <form id="personalDataForm">
+            <div class="form-group">
+                <label for="subject">Project Subject:</label>
+                <input type="text" class="form-control" id="subject" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Description">Project Description:</label>
+                <textarea class="form-control" id="description" rows="4" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="userTypes">Project UserTypes:</label>
+                <input type="text" class="form-control" id="userTypes" required>
+            </div>
+
+            <div class="form-group">
+                <label for="techused">Project Technology used:</label>
+                <input type="text" class="form-control" id="Technologyused" required>
+            </div>
+           
+
+            <button type="button" class="btn btn-danger" onclick="submitForm()">Submit</button>
+        </form>
+    </div>
+
+
+    <div class="card text-center container" style="width: 18rem;">
+        
+        <div class="card-body">
+        
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" id="cardsubject"></li>
+          <li class="list-group-item" id="cardDescription"></li>
+          <li class="list-group-item" id="carduserTypes"></li>
+          <li class="list-group-item" id="cardtechused"></li>
+        </ul>
+        </div>
+      </div>
+
+    <script>
+        function submitForm() {
+           
+            const formData = {
+                subject: document.getElementById('subject').value,
+                userTypes: document.getElementById('userTypes').value,
+                description: document.getElementById('description').value,
+                Technologyused: document.getElementById('Technologyused').value
+            };
+            sessionStorage.setItem('formData', JSON.stringify(formData));
+            LoadDataInCard();
+        }
+
+        function LoadDataInCard() {
+            let cardsubject = document.getElementById('cardsubject');
+            let carduserTypes = document.getElementById('carduserTypes');
+            let cardtechused = document.getElementById('cardtechused');
+            let cardDescription = document.getElementById('cardDescription');
+            
+            const storedData = JSON.parse(sessionStorage.getItem('formData'));
+            cardsubject.textContent = `Project subject : ${storedData.subject}`;
+            carduserTypes.textContent = `User Types : ${storedData.userTypes}`;
+            cardtechused.textContent = `Technology Used : ${storedData.Technologyused}`;
+            cardDescription.textContent = `Description : ${storedData.description}`;
+        }
+    </script>
+
+</body>
+</html>

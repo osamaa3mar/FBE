@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <title>reg Form</title>
+        <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .btn-danger, .btn-primary {
+            width: 100%;
+        }
+    
+    </style>
+</head>
+<body class="container mt-5">
+
+
+    <div class="container">
+        <h2>Reg Form</h2>
+
+        <form id="regform">
+            <div class="form-group">
+                <label for="subject">First Name:</label>
+                <input type="text" class="form-control" id="firstname" required>
+            </div>
+
+            <div class="form-group">
+                <label for="Description">Last Name:</label>
+                <input type="text" class="form-control" id="lastname" required>
+            </div>
+
+            <div class="form-group">
+                <label for="userTypes">Email:</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="techused">Password:</label>
+                <input type="password" class="form-control" id="password" required>
+            </div>
+           
+            
+            <button type="button" class="btn btn-danger" onclick="submitForm()">Submit</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <h2>Login Form</h2>
+
+        <form id="loginform">
+            <div class="form-group">
+                <label for="userTypes">Email:</label>
+                <input type="email" class="form-control" id="LoginEmail" required>
+            </div>
+
+            <div class="form-group">
+                <label for="techused">Password:</label>
+                <input type="password" class="form-control" id="LoginPassword" required>
+            </div>
+           
+
+            <button type="button" class="btn btn-primary" onclick="checkLogin()">Login</button>
+        </form>
+
+        <h2 id="Statues"></h2>
+    </div>
+
+
+    
+
+    <script>
+        function submitForm() {
+           
+            const RegformData = {
+                firstname: document.getElementById('firstname').value,
+                lastname: document.getElementById('lastname').value,
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value
+            };
+            localStorage.setItem(RegformData.email.toString(), JSON.stringify(RegformData));
+        }
+
+       function checkLogin() {
+            const LoginformData = {
+                LoginEmail: document.getElementById('LoginEmail').value,
+                LoginPassword: document.getElementById('LoginPassword').value
+            }
+            const StoredData = JSON.parse(localStorage.getItem(LoginformData.LoginEmail.toString()));
+            let Statues = document.getElementById('Statues');
+            if (StoredData && StoredData.password == LoginformData.LoginPassword) {
+                Statues.textContent = "Login Successed";
+                Statues.style.color = 'green';
+            }
+            else {
+                Statues.textContent = "Login Failed";
+                Statues.style.color = 'red';
+            }
+       }
+
+    </script>
+
+</body>
+</html>

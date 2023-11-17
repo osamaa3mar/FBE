@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+
+
+
+</style>
+<body>
+
+    <form>
+        <label for="name">Name : </label>
+        <input type="text" id="name">
+        <label for="email">Email : </label>
+        <input type="email" id="email">
+        <label for="mobile">Mobile : </label>
+        <input type="text" id="mobile">
+        <button type="button" onclick="AddPrint()">Click on me to print</button>
+
+    </form>
+    <hr>
+    <h3 id="nameView"></h3>
+    <h3 id="emailView"></h3>
+    <h3 id="mobileView"></h3>
+    <hr>
+    <div class="loadData">
+        <span id="nameLoaded" style="color: green;"></span>
+        <span id="emailLoaded" style="color: red;"></span>
+        <span id="mobileLoaded" style="color: yellow "></span>
+    </div>
+
+    <script>
+        let lastname = "";
+        let printedKeys = new Set();
+
+        function AddPrint() {
+            const FormData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                mobile: document.getElementById('mobile').value
+            }
+            lastname = FormData.name;
+            
+            sessionStorage.setItem(lastname, JSON.stringify(FormData));
+            LoadDataFromStorage();
+        }
+
+        function LoadDataFromStorage() {
+            const StorageData = JSON.parse(sessionStorage.getItem(lastname));
+            
+
+            if (StorageData && !printedKeys.has(lastname)) {
+                var newDiv = document.createElement('div');
+                var newName = document.createElement('span');
+                var newEmail = document.createElement('span');
+                var newMobile = document.createElement('span');
+
+                var nameLoaded = document.getElementById('nameLoaded');
+                var emailLoaded = document.getElementById('emailLoaded');
+                var mobileLoaded = document.getElementById('mobileLoaded');
+
+                nameLoaded.textContent = StorageData.name;
+                emailLoaded.textContent = StorageData.email;
+                mobileLoaded.textContent = StorageData.mobile;
+
+                newName.textContent = StorageData.name;
+                newEmail.textContent = StorageData.email;
+                newMobile.textContent = StorageData.mobile;
+
+                newDiv.style.marginTop = '10px'
+                newName.style.border = '1px solid black';
+                newEmail.style.border = '1px solid black';
+                newMobile.style.border = '1px solid black';
+
+                newDiv.appendChild(newName);
+                newDiv.appendChild(newEmail);
+                newDiv.appendChild(newMobile);
+                document.body.appendChild(newDiv);
+
+                printedKeys.add(lastname);
+            } else {
+                console.log("Data not found");
+            }
+            
+        }
+
+ 
+
+    </script>
+    
+</body>
+</html>
