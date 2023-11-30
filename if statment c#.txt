@@ -1,0 +1,222 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp2
+{
+    internal class Program
+    {
+        static void task1()
+        {
+            
+            Console.Write("Enter the first integer: ");
+            int firstNumber = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter the second integer: ");
+            int secondNumber = Convert.ToInt32(Console.ReadLine());
+
+            
+            int smallerNumber = (firstNumber < secondNumber) ? firstNumber : secondNumber;
+
+            Console.WriteLine($"The smaller number is: {smallerNumber}");
+        }
+
+        static void task2()
+        {
+            int number =0;
+            Console.Write("enter number :");
+            number =int.Parse( Console.ReadLine());
+            if (number<0)
+            {
+                Console.Write('-');
+            }
+            else
+            {
+                Console.Write('+');
+            }
+        }
+        static void task3()
+        {
+            Console.Write("Enter the first number: ");
+            int num1 = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter the second number: ");
+            int num2 = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter the third number: ");
+            int num3 = Convert.ToInt32(Console.ReadLine());
+
+            int temp;
+
+            if (num1 > num2)
+            {
+                temp = num1;
+                num1 = num2;
+                num2 = temp;
+            }
+
+            if (num2 > num3)
+            {
+                temp = num2;
+                num2 = num3;
+                num3 = temp;
+            }
+
+            if (num1 > num2)
+            {
+                temp = num1;
+                num1 = num2;
+                num2 = temp;
+            }
+
+            Console.WriteLine($"Sorted Numbers: {num1}, {num2}, {num3}");
+
+
+
+
+
+        }
+        static void task4()
+        {
+
+            Console.Write("Enter the first number: ");
+            int num1 = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter the second number: ");
+            int num2 = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter the third number: ");
+            int num3 = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter the fourth number: ");
+            int num4 = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter the fifth number: ");
+            int num5 = Convert.ToInt32(Console.ReadLine());
+
+            int maxNumber = num1;
+
+            if (num2 > maxNumber)
+            {
+                maxNumber = num2;
+            }
+
+            if (num3 > maxNumber)
+            {
+                maxNumber = num3;
+            }
+
+            if (num4 > maxNumber)
+            {
+                maxNumber = num4;
+            }
+
+            if (num5 > maxNumber)
+            {
+                maxNumber = num5;
+            }
+
+            Console.WriteLine($"The maximum number is: {maxNumber}");
+
+
+        }
+        static void task5()
+        {
+            Console.Write("Enter speed in kilometers per hour: ");
+            double kilometersPerHour = Convert.ToDouble(Console.ReadLine());
+
+            double milesPerHour = kilometersPerHour * 0.621371;
+
+            Console.WriteLine($"Speed in miles per hour: {milesPerHour}");
+
+        }
+        static void task6()
+        {
+            Console.Write("Enter hours: ");
+            int hours = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter minutes: ");
+            int minutes = Convert.ToInt32(Console.ReadLine());
+
+            int totalMinutes = (hours * 60) + minutes;
+
+            Console.WriteLine($"Total minutes: {totalMinutes}");
+        }
+        static void task7()
+        {
+            Console.Write("Enter total minutes: ");
+            int totalMinutes = Convert.ToInt32(Console.ReadLine());
+
+            int hours = totalMinutes / 60;
+            int remainingMinutes = totalMinutes % 60;
+
+            Console.WriteLine($"Total hours: {hours}");
+            Console.WriteLine($"Remaining minutes: {remainingMinutes}");
+        }
+        static void task8()
+        {
+            string[] sentences = {
+            "This is a short sentence.",
+            "Here is a longer sentence with more words.",
+            "A sentence with a moderate length.",
+            "Another example of a sentence.",
+            "The last sentence is quite lengthy and contains many words."
+        };
+
+
+            foreach (string sentence in sentences)
+            {
+
+              
+                Console.WriteLine($"Fixed Length of : \"{sentence}\" {sentence.Length}");
+               
+             
+            }
+        }
+        static void task9()
+        {
+            string sentence = "";
+            Console.Write("enter a string: ");
+            sentence = Console.ReadLine();
+            string []words = sentence.Split();
+            
+            foreach (string word in words)
+            {
+                if (word.Length % 2 == 0)
+                {
+                    Console.Write(word+ " ");
+                }
+                else
+                {
+              
+                    char[] charArray = word.ToCharArray();
+                    Array.Reverse(charArray);
+                    string reversedWord = new string(charArray);
+
+                    Console.Write(reversedWord + " ");
+                }
+            }
+            
+        }
+
+        static void Main(string[] args)
+        {
+
+
+            //task1();
+            //task2();
+            //task3();
+            //task4();
+            //task5();
+            //task6();
+            //task7();
+            //task8();
+            task9();
+
+
+            Console.ReadKey();
+        }
+    }
+}
