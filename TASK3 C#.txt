@@ -1,0 +1,165 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp2
+{
+    internal class Program
+    {
+        static void task1()
+        {
+
+            //string[] ARR = [1, 7, 9, 45];
+            //int[] arr2 = [1, 2, 3];
+            //string[] arr3 = ["the", "fox", "over", "lazy", "dog"];
+
+        }
+
+        static void task2()
+        {
+            //The index of "Banana" is 1 and the index of "Tomato" is 0.
+        }
+        static void task3()
+        {
+            //// Favorite Food
+            //string[] favoriteFoods = { "Pizza", "Burger", "Sushi", "Ice Cream", "Pasta" };
+
+            //// Favorite Sport
+            //string[] favoriteSports = { "Basketball", "Football", "Tennis" };
+
+            //// Favorite Movie
+            //string[] favoriteMovies = { "The Shawshank Redemption", "Inception", "The Godfather", "Pulp Fiction" };
+
+            //// Print each array using foreach
+            //Console.WriteLine("Favorite Foods:");
+            //foreach (string food in favoriteFoods)
+            //{
+            //    Console.WriteLine(food);
+            //}
+
+            //Console.WriteLine("\nFavorite Sports:");
+            //foreach (string sport in favoriteSports)
+            //{
+            //    Console.WriteLine(sport);
+            //}
+
+            //Console.WriteLine("\nFavorite Movies:");
+            //foreach (string movie in favoriteMovies)
+            //{
+            //    Console.WriteLine(movie);
+            //}
+
+            //// Loop through an array using a for loop
+            //Console.WriteLine("\nFavorite Foods (using a loop):");
+            //for (int i = 0; i < favoriteFoods.Length; i++)
+            //{
+            //    Console.WriteLine(favoriteFoods[i]);
+            //}
+
+
+
+
+
+        }
+        static void task4()
+        {
+
+            string s = Console.ReadLine();
+            string []splitted = s.Split(',');
+            int []nums = new int[splitted.Length];
+            int sum = 0;
+            for (int item = 0; item < splitted.Length;item++)
+            {
+                nums[item] = int.Parse(splitted[item]);
+                sum += nums[item];
+            }
+            Console.WriteLine(sum);
+            
+            
+
+
+        }
+        static void task5()
+        {
+            int[] testData = { 1, 2, 4, 5, 7, 4, 2, 4, 6, 7, 8, 9, 654, 322, 111 };
+            int sum = 0;
+            for (int i = 0; i < testData.Length; i++)
+            {
+                if (testData[i] % 2 == 1)
+                {
+                    Console.Write(testData[i] + " ");
+                    sum += testData[i];
+                }
+            }
+            Console.WriteLine("\n"+ sum);
+
+        }
+        static void task6()
+        {
+            int rows = 3;
+
+            for (int i = 1; i <= rows; i++)
+            {
+
+                for (int j = 1; j <= rows - i; j++)
+                {
+                    Console.Write(" ");
+                }
+                
+
+                for (int k = 1; k <= i; k++)
+                {
+                    Console.Write("* ");
+                }
+               
+                Console.WriteLine();
+
+
+
+            }
+        }
+        static void task7()
+        {
+            int rows = 4;
+            int num = 1;
+            for (int i = 1; i <= rows; i++)
+            {
+
+                for (int j = 1; j <= rows - i; j++)
+                {
+                    Console.Write(" ");
+                }
+
+
+                for (int k = 1; k <= i; k++)
+                {
+                    Console.Write(num+ " ");
+                    num++;
+                }
+
+                Console.WriteLine();
+
+            }
+        }
+           
+
+        static void Main(string[] args)
+        {
+
+
+            //task1();
+            //task2();
+            //task3();
+            //task4();
+            //task5();
+            task6();
+            //task7();
+          
+
+
+            Console.ReadKey();
+        }
+    }
+}

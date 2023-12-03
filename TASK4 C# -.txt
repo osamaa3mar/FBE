@@ -1,0 +1,217 @@
+using System;
+using System.Linq;
+
+public class Program
+{
+    static void task1()
+    {
+        int[] numbers = new int[10];
+
+        Console.WriteLine("Enter 10 numbers:");
+
+        for (int i = 0; i < 10; i++)
+        {
+            Console.Write($"Number-{i + 1}: ");
+            numbers[i] = Convert.ToInt32(Console.ReadLine());
+        }
+
+        int sum = CalculateSum(numbers);
+        double average = CalculateAverage(numbers);
+
+        Console.WriteLine($"The sum of 10 numbers is: {sum}");
+        Console.WriteLine($"The average is: {average}");
+    }
+    static void task2()
+    {
+        int number = 0;
+        int[] numbers = new int[10];
+
+        Console.WriteLine("Enter a number:");
+        number = Convert.ToInt32(Console.ReadLine());
+        for (int i = 1; i <= number; i++)
+        {
+            Console.WriteLine($"number is:{i} and the cube of {i} is={CalculateCube(i)}");
+        }
+        
+    }
+    static void task3()
+    {
+        int[] arr = { 1763, 1972, 1925, 1916, 1984, 1124, 1950, 2020 };
+        int[] years = getYears(arr);
+        foreach (int item in years)
+        {
+            Console.Write(item + " ");
+        }
+
+
+    }
+    static void task4()
+    {
+        int ageInYears = 25;
+        int ageInDays = ConvertYearsToDays(ageInYears);
+
+        Console.WriteLine($"Age in years: {ageInYears}");
+        Console.WriteLine($"Age in days: {ageInDays}");
+    }
+     static void task5()
+    {
+        int chickens = 2;
+        int cows = 4;
+        int pigs = 4;
+
+        int totalLegs = CountAnimalLegs(2, 3, 5);
+
+        Console.WriteLine($"Total number of legs: {totalLegs}");
+    }
+    public static void task6()
+    {
+        string username = "osama";
+        string password = "2223";
+
+        string loginStatus = Login(username, password);
+
+        Console.WriteLine($"Login status: {loginStatus}");
+    }
+    public static double CalculatePower(double baseNumber, int exponent)
+    {
+        double result = Math.Pow(baseNumber, exponent);
+        return result;
+    }
+    public static bool GetLeapYear(int year)
+    {
+        if (year < 1900 || year > 2024)
+        {
+            Console.WriteLine("Invalid year. Year must be within the range 1900-2024.");
+            return false;
+        }
+
+        // Check if the year is divisible by 4
+        bool divisibleBy4 = year % 4 == 0;
+
+        // Check if the year is divisible by 100
+        bool divisibleBy100 = year % 100 == 0;
+
+        // Check if the year is divisible by 400
+        bool divisibleBy400 = year % 400 == 0;
+
+        // A leap year must be divisible by 4 but not divisible by 100, except if it's also divisible by 400
+        bool isLeapYear = divisibleBy4 && (!divisibleBy100 || divisibleBy400);
+
+        return isLeapYear;
+    }
+    public static bool IsPrime(int number)
+    {
+        for (int i = 2; i <= number/2; i++)
+        {
+            if (number % i == 0)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static int countWords(string sent)
+    {
+        int count = 0;
+        bool isword = false;
+        for (int i = 0; i < sent.Length; i++)
+        {
+            if (char.IsLetter(sent[i]))
+            {
+                if (!isword)
+                {
+                    count++;
+                    isword = true;
+                }
+            }
+            else
+            {
+                isword = false;
+            }
+        }
+        
+     
+        return count;
+    }
+
+    public static void Main(string[] args)
+    {
+        //task1();
+        //task2();
+        //task3();
+        //task3();
+        //task3();
+        //task6();
+        Console.WriteLine(countWords("   so is great and happy  sdas asfasf   asd"));
+        Console.ReadLine();
+    }
+
+    public static int CalculateSum(int[] numbers)
+    {
+        int sum = 0;
+
+        foreach (int num in numbers)
+        {
+            sum += num;
+        }
+
+        return sum;
+    }
+
+    public static double CalculateAverage(int[] numbers)
+    {
+        int sum = CalculateSum(numbers);
+        double average = (double)sum / numbers.Length;
+
+        return average;
+    }
+    public static int CalculateCube(int number)
+    {
+
+        return number* number* number;
+    }
+    public static int [] getYears(int []years)
+    {
+        int[] newArr  = new int[years.Length];
+        int coun = 0;
+        for (int item=0;item<years.Length;item ++)
+        {
+            if (years[item] >= 1950 )
+            {
+                newArr.SetValue(years[item], coun);
+                coun++;
+            }
+        }
+        return newArr;
+    }
+    public static int ConvertYearsToDays(int ageInYears)
+    {
+        int daysInYear = 365;
+        int ageInDays = ageInYears * daysInYear;
+
+        return ageInDays;
+    }
+    public static int CountAnimalLegs(int numChickens, int numCows, int numPigs)
+    {
+        int totalLegs = (numChickens * 2) + (numCows * 4) + (numPigs * 4);
+
+        return totalLegs;
+    }
+    public static string Login(string username, string password)
+    {
+        string[] validUsers = { "osama/222", "ali/password", "heba:12345w" };
+
+        string inputCredentials = $"{username}/{password}";
+
+        foreach (string validUser in validUsers)
+        {
+            if (validUser == inputCredentials)
+            {
+                return "Pass";
+            }
+        }
+
+        return "Fail";
+    }
+}

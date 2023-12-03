@@ -1,0 +1,96 @@
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        
+    }
+
+    static int ConvertMinutesToSeconds(int minutes)
+    {
+        return minutes * 60;
+    }
+    static int IncrementByOne(int number)
+    {
+        return number + 1;
+    }
+    static int GetFirstElement(int[] numbers)
+    {
+
+            return numbers[0];
+        
+    }
+    static double CalculateTriangleArea(double baseLength, double height)
+    {
+        return 0.5 * baseLength * height;
+    }
+    static  int [] EvenNumberEvenIndex(int[] arr)
+    {
+        List<int> result = new List<int>();
+        for (int i = 0; i < arr.Length; i++)
+        {
+            if (arr[i]% 2 == 0 && i%2 ==0)
+            {
+                result.Add(arr[i]);
+            }
+        }
+        return result.ToArray();
+        
+    }
+    static string[] evenIndexOddLength(string[] strings)
+    {
+        List<string> result = new List<string>();
+
+        for (int i = 0; i < strings.Length; i += 2)
+        {
+            if (strings[i].Length % 2 != 0)
+            {
+                result.Add(strings[i]);
+            }
+        }
+
+        return result.ToArray();
+    }
+    static int[] powerElementIndex(int[] nums)
+    {
+        List<int> result = new List<int>();
+
+        for (int i = 0; i < nums.Length; i++)
+        {
+            int power = (int)Math.Pow(nums[i], i);
+            result.Add(power);
+        }
+
+        return result.ToArray();
+    }
+    int multiplication2(int a, int b)
+    {
+        int result = 0;
+        for (int i = 0; i < b; i++)
+        {
+            result += a;
+        }
+        return result;
+    }
+    int muti2(int a, int b)
+    {
+        int result = 1;
+        for (int i = a; i <= b; i++)
+        {
+            result *= i;
+        }
+        return result;
+    }
+    double aveArray(int[] nums)
+    {
+        int sum = 0;
+        foreach (int num in nums)
+        {
+            sum += num;
+        }
+        double average = (double)sum / nums.Length;
+        return average;
+    }
+}
