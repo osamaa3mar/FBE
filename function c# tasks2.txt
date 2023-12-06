@@ -1,0 +1,358 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        //DateTime Date1 = new DateTime(2018, 12, 29);
+        //DateTime Date2 = new DateTime(2019, 1, 1);
+        //Console.WriteLine(getDays(Date1, Date2));
+
+        //string[] array = { "he", "asd","ew" };
+        //array = numInStr(array);
+        //foreach (var item in array)
+        //{
+        //    Console.WriteLine(item);
+        //}
+        //Console.WriteLine(reverseOdd("One two three four"));
+
+        //long number = 112233445566778899;
+
+        //Console.WriteLine(IsPandigital(number));
+        //Console.WriteLine(RemoveZeros("0005455000"));
+        //int[] arr = { 1, 2, 3, 4, 5, 6, 7, 8, 9, };
+        //Console.WriteLine(secondLargest(arr));
+
+        //Console.WriteLine(IsRepdigit(5555)) ;
+        //Console.WriteLine(ReverseStringWords("i g"));
+
+        //int[] ints = { 1, 2, 34 , 557 , 65 };
+        //Console.WriteLine(sevenBoom(ints));
+        //Console.WriteLine(insertWhitespace("HelloFronTheDarkSide"));
+        //Console.WriteLine(capToFront("asdSSSasaEFWE"));
+        //string[] str = new string[] { "rsq", "6hid", "g", "rsq6hig" };
+        //Console.WriteLine(IsMatchTheLastItem(str));
+
+        //double[] arr = { 1, 2, float.NaN };
+        //Console.WriteLine(FindNaN(arr));
+
+        //int[] arr = { 2,2,23,4,5,6,7,5,4,3};
+        //arr = removeDups(arr);
+        //foreach (var item in arr)
+        //{
+        //    Console.WriteLine(item);
+        //}
+        //string s = "04";
+        //Console.WriteLine(int.Parse(s));
+
+        //Console.WriteLine(convertTime("051:40:22AM”"));
+        //Console.WriteLine(removeLastVowel("Those who dare to fail miserably can achieve greatly."));
+        int[] u = { 1,9, 5 };
+        Console.WriteLine(sumOfCubes(u));
+        Console.ReadLine();
+    }
+
+    static int getDays(DateTime date1, DateTime date2)
+    {
+        TimeSpan difference = date1 - date2;
+        return (int)difference.TotalDays;
+
+    }
+    static string[] numInStr(string[] str)
+    {
+        List<string> list = new List<string>();
+
+
+
+        foreach (var item in str)
+        {
+            if (Regex.IsMatch(item, @"\d"))
+            {
+                list.Add(item);
+            }
+        }
+        return list.ToArray();
+    }
+    static string reverseOdd(string str)
+    {
+        string[] words = str.Split(' ');
+
+        for (int i = 0; i < words.Length; i++)
+        {
+            if (words[i].Length % 2 == 1)
+            {
+                char[] chars = words[i].ToCharArray();
+                Array.Reverse(chars);
+                words[i] = new string(chars);
+            }
+        }
+
+        return string.Join(" ", words);
+    }
+    static bool IsPandigital(long number)
+    {
+        string numberString = number.ToString();
+
+        for (int digit = 0; digit <= 9; digit++)
+        {
+            if (numberString.IndexOf(digit.ToString()) == -1)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+    static int Add(int num1, int num2)
+    {
+        return num1 + num2;
+    }
+
+    public static string RemoveZeros(string n)
+    {
+
+        if (n.Contains('.'))
+        {
+            n = n.TrimEnd('0');
+            n = n.TrimStart('0');
+        }
+        else
+        {
+            n = n.TrimStart('0');
+        }
+
+        if (string.IsNullOrEmpty(n))
+        {
+            n = "0";
+        }
+
+        return n;
+    }
+
+
+    static int secondLargest(int[] nums)
+    {
+        List<int> result = new List<int>();
+
+        int firstLargest = nums.Max();
+        foreach (var item in nums)
+        {
+            result.Add(item);
+        }
+        result.Remove(firstLargest);
+        return result.ToArray().Max();
+    }
+    public static bool IsRepdigit(int a)
+    {
+        string number = a.ToString();
+
+        if (a < 0)
+        {
+            return false;
+        }
+
+        char firstDigit = number[0];
+
+        for (int i = 1; i < number.Length; i++)
+        {
+            if (number[i] != firstDigit)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+    public static string ReverseStringWords(string str)
+    {
+        string[] words = str.Split(' ');
+        Array.Reverse(words);
+        return string.Join(" ", words);
+
+    }
+    public static string sevenBoom(int[] nums)
+    {
+        string numberString = string.Join(" ", nums);
+        for (int i = 0; i < numberString.Length; i++)
+        {
+            if (numberString[i] == '7')
+            {
+                return "Boom";
+            }
+        }
+
+        return "Number 7 in non there";
+    }
+    public static string insertWhitespace(string str)
+    {
+        List<string> list = new List<string>();
+        string word = "";
+        for (int i = 0; i < str.Length; i++)
+        {
+            word += str[i];
+            if (i < str.Length - 1 && char.IsLower(str[i]) && char.IsUpper(str[i + 1]))
+            {
+                list.Add(word);
+                word = "";
+            }
+
+
+        }
+        list.Add(word);
+        return string.Join(" ", list.ToArray());
+    }
+    public static int CountTrue(bool[] arr)
+    {
+        int count = 0;
+
+        for (int i = 0; i < arr.Length; i++)
+        {
+            if (arr[i] == true)
+            {
+                count++;
+            }
+        }
+
+        return count;
+    }
+    public static string capToFront(string str)
+    {
+        string upperLetters = "", lower = "";
+        for (int i = 0; i < str.Length; i++)
+        {
+            if (char.IsUpper(str[i]))
+            {
+                upperLetters += str[i];
+            }
+            else
+            {
+                lower += str[i];
+            }
+        }
+        return upperLetters + lower;
+    }
+    public static bool IsMatchTheLastItem(string[] str)
+    {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < str.Length - 1; i++)
+        {
+            stringBuilder.Append(str[i]);
+        }
+        if (stringBuilder.ToString() == str[str.Length - 1])
+        {
+            return true;
+        }
+        return false;
+    }
+
+    public static int FindNaN(double[] arr)
+    {
+        for (int i = 0; i < arr.Length; i++)
+        {
+            if (double.IsNaN(arr[i]))
+            {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    public static T[] removeDups<T>(T[] arr)
+    {
+
+        List<T> ret = new List<T>();
+        foreach (var item in arr)
+        {
+            if (!ret.Contains(item))
+            {
+                ret.Add(item);
+            }
+        }
+        return ret.ToArray();
+    }
+
+    public static string convertTime(string str)
+    {
+        string pattern = @"^([01]\d|2[0-3]):[0-5]\d:[0-5]\d[AP]M$";
+
+        if (!Regex.IsMatch(str, pattern))
+        {
+            return "Invalid time format";
+        }
+        int hour = int.Parse(str.Substring(0, 2));
+        string newStr = str.Substring(2, 6);
+
+        if (str.Contains("A"))
+        {
+            if (hour == 12)
+            {
+                return "00" + newStr;
+            }
+            else
+            {
+                return hour.ToString("D2") + newStr;
+            }
+        }
+
+        if (str.Contains("P"))
+        {
+            if (hour == 12)
+            {
+                return hour.ToString("D2") + newStr;
+            }
+            else
+            {
+                hour += 12;
+                return hour.ToString("D2") + newStr;
+            }
+        }
+
+        return "Invalid time";
+    }
+    public static string removeLastVowel(string str)
+    {
+        List<string> arr = new List<string>();
+        string s = "";
+        foreach (string item in str.Split(' '))
+        {
+            for (int y = 0; y < item.Length; y++)
+            {
+                if (y!= IndexOfLastVowel(item))
+                {
+                    s += item[y];
+                }
+            }
+            arr.Add(s);
+            s = "";
+        }
+        return string.Join(" ", arr.ToArray());
+    }
+    public static int IndexOfLastVowel(string str)
+    {
+        char[] vowels = { 'u', 'a', 'i', 'o', 'e' };
+        for (int i = str.Length -1; i >=0 ; i--)
+        {
+            if (vowels.Contains(str[i]))
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public static int sumOfCubes(int[] nums)
+    {
+        double sum = 0;
+        foreach (var item in nums)
+        {
+            sum+=Math.Pow(item, 3);
+        }
+        return Convert.ToInt32(sum);
+    }
+
+}

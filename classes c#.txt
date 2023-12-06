@@ -1,0 +1,89 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+class Class1
+{
+    public Class1()
+    {
+        Console.WriteLine("class created");
+    }
+    public Class1(string name)
+    {
+        Console.WriteLine("Hello My Name is " + name);
+    }
+}
+class Factorial
+{
+    public static int CalculateFactorial(int n)
+    {
+        int result = 1;
+
+        for (int i = 1; i <= n; i++)
+        {
+            result *= i;
+        }
+
+        return result;
+    }
+}
+class ClsSortArr
+{
+    public static void SortArr(int[] arr)
+    {
+        Array.Sort(arr);
+    }
+}
+class DateDifferenceCalculator
+{
+    public static void CalculateDateDifference(DateTime date1, DateTime date2)
+    {
+        TimeSpan difference = date2 - date1;
+
+        int years = difference.Days / 365;
+        difference = difference - TimeSpan.FromDays(years * 365);
+
+        int months = difference.Days / 30;
+        difference = difference - TimeSpan.FromDays(months * 30);
+
+        int days = difference.Days;
+
+        Console.WriteLine($"Difference: {years} years, {months} months, {days} days.");
+    }
+}
+class ClsConvertDateFormat
+{
+    public static void Convert(string Date)
+    {
+        DateTime format ;
+        if (DateTime.TryParseExact(Date,"dd-mm-yyyy",null,System.Globalization.DateTimeStyles.None,out format))
+        {
+            Console.WriteLine($"{format:yyyy-mm-dd}");
+        }
+        else
+        {
+            Console.WriteLine("invalid format");
+        }
+    }
+}
+class Program
+{
+    static void Main(string[] args)
+    {
+        //Console.WriteLine(Factorial.CalculateFactorial(4));
+        //int[] ar = { 1, 0, 3, 345, -234, -3 };
+        //ClsSortArr.SortArr(ar);
+        //foreach (var item in ar)
+        //{
+        //    Console.WriteLine(item);
+        //}
+        string date = "02-04-2000";
+        ClsConvertDateFormat.Convert(date);
+        
+        Console.ReadKey();
+    }
+
+  
+
+}
