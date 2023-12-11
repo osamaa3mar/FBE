@@ -1,0 +1,6 @@
+Name: Osama Amar
+Specialization: Software Developer
+Age: 23
+Description: I am a software developer with a passion for creating innovative solutions.
+I enjoy coding and learning about new technologies. My goal is to contribute to meaningful projects.
+Currently, I work in the field of software development, focusing on web application development.

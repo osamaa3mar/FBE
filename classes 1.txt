@@ -1,0 +1,61 @@
+using System;
+
+// Base class
+class Vehicle
+{
+    public string Make { get; set; }
+    public int Year { get; set; }
+    public string Type { get; set; }
+    public double Price { get; set; }
+    public string Model { get; set; }
+    public string PalletNo { get; set; }
+    public string Color { get; set; }
+
+    public Vehicle(string make, int year, string type, double price, string model, string palletNo, string color)
+    {
+        this.Make = make;
+        this.Year = year;
+        this.Type = type;
+        this.Price = price;
+        this.Model = model;
+        this.PalletNo = palletNo;
+        this.Color = color;
+    }
+
+    public void StartEngine()
+    {
+        Console.WriteLine("Engine started");
+    }
+
+    public void StopEngine()
+    {
+        Console.WriteLine("Engine stopped");
+    }
+
+    public override string ToString()
+    {
+        return $"Make: {Make}, Year: {Year}, Type: {Type}, Price: {Price:C}, Model: {Model}, Pallet No: {PalletNo}, Color: {Color}";
+    }
+}
+
+class Car : Vehicle
+{
+    public Car(string make, int year, string type,double price, string model, string palletNo, string color)
+        : base(make, year, type, price, model, palletNo, color)
+    {
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Car myCar = new Car("Toyota", 2023,"Car", 25000.00, "Camry", "12345", "Blue");
+
+        Console.WriteLine(myCar.ToString());
+
+        myCar.StartEngine();
+        myCar.StopEngine();
+        Console.ReadLine();
+    }
+}

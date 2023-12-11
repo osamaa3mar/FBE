@@ -1,0 +1,59 @@
+using System;
+using System.IO;
+
+class Program
+{
+    static void Main()
+    {
+        string filePath = "C:/Users/Someone/Desktop/PersonalInfoFile.txt";
+        string[] lines = {
+            "Name: Osama Amar",
+            "Specialization: Software Developer",
+            "Age: 23",
+            "Description: I am a software developer with a passion for creating innovative solutions.",
+            "I enjoy coding and learning about new technologies. My goal is to contribute to meaningful projects.",
+            "Currently, I work in the field of software development, focusing on web application development."
+        };
+        WriteToFile(filePath,lines);
+
+        ReadFromFile(filePath);
+
+        Console.ReadLine();
+    }
+
+    static void WriteToFile(string filePath,string[] lines)
+    {
+        
+        File.WriteAllLines(filePath, lines);
+
+        Console.WriteLine("Information written to the file successfully.");
+    }
+
+    static void ReadFromFile(string filePath)
+    {
+        try
+        {
+            string[] lines = File.ReadAllLines(filePath);
+
+            int totalCharacters = 0;
+            int totalWords = 0;
+            foreach (var line in lines)
+            {
+                totalCharacters += line.Replace(" ", "").Length;
+
+                totalWords += line.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Length;
+            }
+
+            Console.WriteLine($"Total number of characters (excluding spaces): {totalCharacters}");
+            Console.WriteLine($"Total number of words (excluding spaces): {totalWords}");
+        }
+        catch (FileNotFoundException)
+        {
+            Console.WriteLine("File not found. Please make sure the file exists.");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"An error occurred: {ex.Message}");
+        }
+    }
+}
